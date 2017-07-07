@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}INDEX {% endblock %}
+
+{% block content %}
+	<h1>Add your task:</h1>
+	<form action='' method='post'>
+		{% csrf_token %}
+		{{form.as_p}}
+		<input class="btn btn-primary" type="submit" value="Add" name="">
+	</form>
+	<br>
+
+	{% for task in tasks %}
+		<div>
+			{% if task.is_completed %}
+			<span id="complete">{{forloop.counter}}. {{task.task_name}}: {{task.description}}</span>
+			<a class="btn btn-xs btn-primary" href="{% url 'task:edit' task.id %}">Edit</a>
+			<a class="btn btn-xs btn-danger" href="{% url 'task:delete' task.id %}">Delete</a>
+			
+				<a class="btn btn-xs btn-success" href="{% url 'task:complete' task.id %}">Uncomplete</a>
+			{% else %}
+				<span>{{forloop.counter}}. {{task.task_name}}: {{task.description}}</span>
+				<a class="btn btn-xs btn-primary" href="{% url 'task:edit' task.id %}">Edit</a>
+				<a class="btn btn-xs btn-danger" href="{% url 'task:delete' task.id %}">Delete</a>
+				<a class="btn btn-xs btn-success" href="{% url 'task:complete' task.id %}">Complete</a>
+			{% endif %}
+		</div>
+		<br>
+	{% endfor %}
+{% endblock %}

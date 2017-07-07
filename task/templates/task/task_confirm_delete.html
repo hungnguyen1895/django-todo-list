@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Delete Task {% endblock %}
+
+{% block content %}
+	<form action="" method='post'>
+		{% csrf_token %}
+		<p>Are you sure you want to delete {{object.task_name}} task ?</p>
+		<input class="btn btn-danger" type="submit" value="Delete" name="">		
+	</form>
+{% endblock %}

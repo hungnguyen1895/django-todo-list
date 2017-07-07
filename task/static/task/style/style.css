@@ -1,0 +1,30 @@
+html, body {
+	height: 100%;
+	position: relative;
+}
+#complete {
+	text-decoration: line-through;
+}
+
+
+
+.navbar-brand{
+	font-family: 'Tangerine', cursive;
+	font-size: 32px;	
+}
+
+.navbar {
+	border-radius: 0px;
+}
+
+/* footer sticks to the bottom, but isn't fixed */
+footer {
+	background-color: #101010;
+	color: white;
+	position: absolute;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	text-align: center;
+	padding: 20px;
+}
